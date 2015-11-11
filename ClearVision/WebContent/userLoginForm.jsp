@@ -48,7 +48,7 @@
 		<div class="container">
 			<div class="col-sm-3 col-md-4" style= "margin-top: 50px;">
 				<h1>Log in</h1>
-		 		<form role="form">
+		 		<form role="form" id="logInForm">
   			 		<div class="form-group">
    			  		<label for="email">Email address:</label>
    			  		<input type="email" class="form-control" id="email">
@@ -65,14 +65,14 @@
 				</div>
 		<div class="col-sm-8 col-md-5"  style= "margin-top: 50px;">
 			<h1>Create account</h1>
-		  <form role="form">
+		  <form role="form" id="createAccountForm">
 		  <div class="form-group">
-   			  <label for="first name">First Name:</label>
+   			  <label for="firstName">First Name:</label>
    			  <input type="text" class="form-control" id="firstName">
   			</div>
   			<div class="form-group">
-   			  <label for="first name">Last Name:</label>
-   			  <input type="text" class="form-control" id="firstName">
+   			  <label for="lastName">Last Name:</label>
+   			  <input type="text" class="form-control" id="lastName">
   			</div>
   			<div class="form-group">
    			  <label for="email">Email address:</label>
@@ -84,9 +84,24 @@
   			</div>
   			<button type="submit" class="btn btn-default">Submit</button>
 		  </form>
+		  	<div class="row">
+		<div class="col-sm-3">
+			<h1>Add</h1>
+		 		<form role="form" id="addTopicForm">
+ 						<div class="form-group">
+   			  			<label for="topic">Topic:</label>
+   			 			<input type="text" class="form-control" id="addTopicForm">
+  						</div>
+  				  	<button type="submit" class="btn btn-default">Submit</button>
+		  		</form>	
 		</div>
 	</div>
+		</div>
+		
 	</div>
+	
+	</div>
+	
 	<div class="row">
 		<div class="col-sm-12">
 				<footer>
