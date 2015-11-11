@@ -15,76 +15,55 @@
 </head>
 
 <body>
-
 	<nav id="myNavbar"
 		class="navbar navbar-default navbar-inverse navbar-fixed-top"
 		role="navigation">
-
 		<!-- Brand and toggle get grouped for better mobile display -->
-
 		<div class="container">
-
 			<div class="navbar-header">
-
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#navbarCollapse">
-
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
-
 				</button>
-
 				<a class="navbar-brand" href="#">Clear Vision</a>
-
 			</div>
-
 			<!-- Collect the nav links, forms, and other content for toggling -->
-
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-
 				<ul class="nav navbar-nav">
-
 					<li class="active"><a href="null"
 						target="_blank">Home</a></li>
-
 					<li><a href="null"
 						target="_blank">About</a></li>
-						
 					<li><a href="null"
 						target="_blank">Get Started</a></li>
-
 					<li><a href="null"
 						target="_blank">Contact</a></li>
-
 				</ul>
-
 			</div>
-
 		</div>
-
 	</nav>
-
-	<div class="container">
-
-		<div class="well">
-			<h1>Log in</h1>
-		  <form role="form">
-  			<div class="form-group">
-   			  <label for="email">Email address:</label>
-   			  <input type="email" class="form-control" id="email">
-  			</div>
- 			<div class="form-group">
-   			  <label for="pwd">Password:</label>
-   			  <input type="password" class="form-control" id="pwd">
-  			</div>
-  			<button type="submit" class="btn btn-default">Submit</button>
-		  </form>
-		</div>
-	</div>
-	<div class="container">
-
-		<div class="well">
+	<div class="row">
+		<div class="container">
+			<div class="col-sm-3 col-md-4" style= "margin-top: 50px;">
+				<h1>Log in</h1>
+		 		<form role="form">
+  			 		<div class="form-group">
+   			  		<label for="email">Email address:</label>
+   			  		<input type="email" class="form-control" id="email">
+  			  		</div>
+ 						<div class="form-group">
+   			  			<label for="pwd">Password:</label>
+   			 			<input type="password" class="form-control" id="pwd">
+  						</div>
+  				  	<button type="submit" class="btn btn-default">Submit</button>
+		  		</form>
+			</div>
+				<div class="col-sm-1 col-md-3" style= "margin-top: 50px; text-align: center;">
+					<h1>Or</h1>
+				</div>
+		<div class="col-sm-8 col-md-5"  style= "margin-top: 50px;">
 			<h1>Create account</h1>
 		  <form role="form">
 		  <div class="form-group">
@@ -107,7 +86,7 @@
 		  </form>
 		</div>
 	</div>
-		<hr>
+	</div>
 	<div class="row">
 		<div class="col-sm-12">
 				<footer>
