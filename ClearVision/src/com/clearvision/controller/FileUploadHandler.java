@@ -42,7 +42,6 @@ public class FileUploadHandler extends HttpServlet {
 		db.saveBookmarksToDB(bookmarkList);
 
 		request.setAttribute("bookmarkList", bookmarkList);
-
 		request.getRequestDispatcher("/result.jsp").forward(request, response);
 
 	}

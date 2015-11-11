@@ -1,6 +1,5 @@
 package com.clearvision.database;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
@@ -8,36 +7,49 @@ import java.util.List;
 import com.clearvision.model.Bookmark;
 
 public class BookmarkDB {
-	String driver = "com.mysql.jdbc.Driver";
-	String connection = "jdbc:mysql://localhost:3306/testerizer";
-	String user = "root";
-	String password = "sesame";
-	int rowsAdded;
+	int rowsChanged;
+	
+	public BookmarkDB() {}
 	
 	public int saveBookmarksToDB(List<Bookmark> bookmarks) {
-		try {
-			Class.forName(driver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		String statementString = "Insert into BookmarksTest (BookmarkName, BookmarkURL, UserIDLink) Values (?,?,?)";
+		String statementString = "Insert into Bookmarks (Name, URL, UserIDLink) Values (?,?,?)";
 		
 		try {
-			Connection con = DriverManager.getConnection(connection, user, password);
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+			
 			PreparedStatement addBookmarksToBookmarkTable = con.prepareStatement(statementString);
 			for (Bookmark bookmark : bookmarks) {
 				addBookmarksToBookmarkTable.setString(1, bookmark.getName());
 				addBookmarksToBookmarkTable.setString(2, bookmark.getUrl());
 				addBookmarksToBookmarkTable.setString(3, "1");
-			rowsAdded += addBookmarksToBookmarkTable.executeUpdate();
+			rowsChanged += addBookmarksToBookmarkTable.executeUpdate();
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return rowsAdded;
+		return rowsChanged;
+	}
+	
+	public int deleteBookmarkFromDB(Bookmark bookmark) {
+		String statementString = "Delete from Bookmarks where URL = ?";
+		
+		try {
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+			
+			PreparedStatement deleteBookmarkFromBookmarkTable = con.prepareStatement(statementString);
+			deleteBookmarkFromBookmarkTable.setString(1, bookmark.getUrl());
+			rowsChanged = deleteBookmarkFromBookmarkTable.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rowsChanged;
+		
 	}
 }
 
