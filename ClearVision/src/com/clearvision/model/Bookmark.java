@@ -8,6 +8,7 @@ public class Bookmark {
 	public int bookmarkID;
 	
 	public Bookmark() {}
+	
 	public Bookmark(String url, String name, String addDate, String topic, int bookmarkID) {
 		this.url = url;
 		this.name = name;
