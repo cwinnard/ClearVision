@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 	String driver = "com.mysql.jdbc.Driver";
-	String connection = "jdbc:mysql://localhost:3306/testerizer";
+	String connection = "jdbc:mysql://localhost:3306/bookmark_test";
 	String dbUser = "root";
 	String password = "sesame";
 	
