@@ -6,6 +6,15 @@ public class User {
 	public String email;
 	public String pass;
 	public Boolean valid;
+	public int userID;
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 
 	public User() {
 	}
@@ -15,6 +24,7 @@ public class User {
 		this.lastName = lastName;
 		this.email = email;
 		this.pass = pass;
+		this.userID = userID;
 
 	}
 

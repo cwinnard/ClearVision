@@ -17,7 +17,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 	
 	@Override
 	public void saveBookmarksToDB(List<Bookmark> bookmarks) {
-		 statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDLink) Values (?,?,?,?)";
+		 statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDKey) Values (?,?,?,?)";
 		 
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
@@ -38,7 +38,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 	
 	@Override
 	public void addBkMarkToDb(Bookmark bookmark) {
-		 statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDLink) Values (?,?,?,?)";
+		 statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDKey) Values (?,?,?,?)";
 		
 		try {
 			DatabaseConnection connector = new DatabaseConnection();

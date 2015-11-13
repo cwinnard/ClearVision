@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void addUserToDb(User user) {
-		statementString = "Insert into User (FirstName, LastName, Email, Pass) Values (?,?,?,?)";
+		statementString = "Insert into Users (FirstName, LastName, Email, Pass) Values (?,?,?,?)";
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void deleteUserFromDb(String email) {
-		statementString = "Delete from User where email = ?";
+		statementString = "Delete from Users where email = ?";
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 	public User getUserFromDb(String email) {
 		User userInfo = new User();
 
-		statementString = "SELECT * FROM User Where email And pass = (?,?)";
+		statementString = "SELECT * FROM Users Where email And pass = (?,?)";
 		
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao {
 			userInfo.setLastName(lastName);
 			userInfo.setEmail(email);
 			userInfo.setPass(pass);
-		
+			userInfo.setUserID(userId);
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

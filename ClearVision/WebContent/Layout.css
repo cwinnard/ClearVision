@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+h3, h5 {
+	text-align: center;
+}
+
+#BookmarkList {
+	float: left;
+	width: 29%;
+	height: 500px;
+}
+
+#TopicList {
+	float: left;
+	width: 29%;
+	height: 500px;
+}
+
+#TagList {
+	float: left;
+	width: 29%;
+	height: 500px;
+}
