@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.clearvision.database.UserDB;
 import com.clearvision.model.User;
 
-
 /**
- * Servlet implementation class MainController
+ * Servlet implementation class AddUserController
  */
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
+@WebServlet("/AddUserController")
+public class AddUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public MainController() {
+	public AddUserController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,7 +32,16 @@ public class MainController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		UserDB userDB = new UserDB();
+		System.out.println("Validate User/ Controller");
+		User user = new User();
+		user.setEmail(request.getParameter("Email"));
+		user.setPass(request.getParameter("Pass"));
+		userDB.validateUserInDatabase(user);
+
+		response.getWriter().append(request.getParameter("Email"));
+		response.getWriter().append(request.getParameter("Pass"));
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -46,19 +54,14 @@ public class MainController extends HttpServlet {
 		String action = request.getParameter("action");
 		UserDB userDB = new UserDB();
 
-		switch (action) {
-		case "add": {
+		System.out.println("Adding User / Controller");
+		// response.getWriter().append(request.getParameter("FirstName"));
+		User user = new User();
+		user.setFirstName(request.getParameter("FirstName"));
+		user.setLastName(request.getParameter("LastName"));
+		user.setEmail(request.getParameter("Email"));
+		user.setPass(request.getParameter("Pass"));
+		userDB.addUserToDatabase(user);
 
-			User user = new User();
-			user.setFirstName(request.getParameter("FirstName"));
-			user.setLastName(request.getParameter("LastName"));
-			user.setEmail(request.getParameter("Email"));
-			user.setPass(request.getParameter("Pass"));
-			userDB.addUserToDatabase(user);
-
-			break;
-
-		}
-		}
 	}
 }

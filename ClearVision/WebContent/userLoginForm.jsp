@@ -48,14 +48,14 @@
 		<div class="container">
 			<div class="col-sm-3 col-md-4" style= "margin-top: 50px;">
 				<h1>Log in</h1>
-		 		<form role="form" id="logInForm">
+		 		<form role="form" id="logInForm" action="AddUserController" method="get"> >
   			 		<div class="form-group">
    			  		<label for="email">Email address:</label>
-   			  		<input type="email" class="form-control" id="email">
+   			  		<input type= "email" class="form-control" id="Email" name = "Email">
   			  		</div>
  						<div class="form-group">
    			  			<label for="pwd">Password:</label>
-   			 			<input type="password" class="form-control" id="pwd">
+   			 			<input type="password" class="form-control" id="Pass" name = "Pass">
   						</div>
   				  	<button type="submit" class="btn btn-default">Submit</button>
 		  		</form>
@@ -65,22 +65,22 @@
 				</div>
 		<div class="col-sm-8 col-md-5"  style= "margin-top: 50px;">
 			<h1>Create account</h1>
-		  <form role="form" id="createAccountForm">
+		  <form role="form" id="createAccountForm" action="AddUserController" method="post">>
 		  <div class="form-group">
-   			  <label for="firstName">First Name:</label>
-   			  <input type="text" class="form-control" id="firstName">
+   			  <label for="FirstName">First Name:</label>
+   			  <input type="text" class="form-control" id="FirstName" name = "FirstName">
   			</div>
   			<div class="form-group">
-   			  <label for="lastName">Last Name:</label>
-   			  <input type="text" class="form-control" id="lastName">
+   			  <label for="LastName">Last Name:</label>
+   			  <input type="text" class="form-control" id="LastName" name = "LastName">
   			</div>
   			<div class="form-group">
-   			  <label for="email">Email address:</label>
-   			  <input type="email" class="form-control" id="email">
+   			  <label for="Email">Email address:</label>
+   			  <input type="email" class="form-control" id="Email" name = "Email">
   			</div>
  			<div class="form-group">
-   			  <label for="pwd">Password:</label>
-   			  <input type="password" class="form-control" id="pwd">
+   			  <label for="Pass">Password:</label>
+   			  <input type="password" class="form-control" id="Pass" name = "Pass">
   			</div>
   			<button type="submit" class="btn btn-default">Submit</button>
 		  </form>

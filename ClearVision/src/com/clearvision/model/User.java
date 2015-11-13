@@ -5,16 +5,17 @@ public class User {
 	public String lastName;
 	public String email;
 	public String pass;
-	public int userID;
-	
-	public User () {}
-	
-	public User (String firstName, String lastName, String email, String pass, int userID) {
+	public Boolean valid;
+
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String email, String pass, int userID) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.pass = pass;
-		this.userID = userID;
+
 	}
 
 	public String getFirstName() {
@@ -49,13 +50,12 @@ public class User {
 		this.pass = pass;
 	}
 
-	public int getUserID() {
-		return userID;
+	public Boolean getValid() {
+		return valid;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setValid(Boolean valid) {
+		this.valid = valid;
 	}
-	
-	
+
 }
