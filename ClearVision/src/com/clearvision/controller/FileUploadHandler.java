@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.clearvision.database.BookmarkDB;
+import com.clearvision.database.BkmarkDaoImpl;
 import com.clearvision.model.Bookmark;
 import com.clearvision.model.Parser;
 
@@ -38,7 +38,7 @@ public class FileUploadHandler extends HttpServlet {
 		Parser parser = new Parser();
 		List<Bookmark> bookmarkList = parser.populateBookmarkList(fileContents);
 
-		BookmarkDB db = new BookmarkDB();
+		BkmarkDaoImpl db = new BkmarkDaoImpl();
 		db.saveBookmarksToDB(bookmarkList);
 
 		request.setAttribute("bookmarkList", bookmarkList);
