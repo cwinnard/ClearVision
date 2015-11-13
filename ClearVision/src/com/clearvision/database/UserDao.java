@@ -1,7 +1,4 @@
-
 package com.clearvision.database;
-
-import java.util.List;
 
 import com.clearvision.model.User;
 

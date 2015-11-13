@@ -18,8 +18,8 @@ public class UserDaoImpl implements UserDao {
 	public void addUserToDb(User user) {
 		statementString = "Insert into User (FirstName, LastName, Email, Pass) Values (?,?,?,?)";
 		try {
-			ConnectToDb connector = new ConnectToDb();
-			Connection con = connector.connectDb();
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
 
 			PreparedStatement addUserToUserTable = con.prepareStatement(statementString);
 			addUserToUserTable.setString(1, user.getFirstName());
@@ -37,8 +37,8 @@ public class UserDaoImpl implements UserDao {
 	public void deleteUserFromDb(String email) {
 		statementString = "Delete from User where email = ?";
 		try {
-			ConnectToDb connector = new ConnectToDb();
-			Connection con = connector.connectDb();
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
 
 			PreparedStatement deleteUserFromUserTable = con.prepareStatement(statementString);
 			deleteUserFromUserTable.setString(1, email);
@@ -56,8 +56,9 @@ public class UserDaoImpl implements UserDao {
 		statementString = "SELECT * FROM User Where email And pass = (?,?)";
 		
 		try {
-			ConnectToDb connector = new ConnectToDb();
-			Connection con = connector.connectDb();
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+
 			PreparedStatement getUserFromUserTable = con.prepareStatement(statementString);
 			ResultSet userResults = getUserFromUserTable.executeQuery();
 			
