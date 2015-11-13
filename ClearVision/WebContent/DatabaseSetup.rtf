@@ -30,4 +30,24 @@ UserIDKey INT,\
 Primary Key (BookmarkID),\
 Foreign Key (UserIDKey) references Users(UserID)\
 );\
+\
+Drop table if exists Tags;\
+Create table Tags (\
+TagID INT NOT NULL AUTO_INCREMENT,\
+Tag VARCHAR(50),\
+Primary Key (TagID)\
+);\
+\
+Drop table if exists BookmarkTag;\
+Create table BookmarkTag (\
+relationshipID INT NOT NULL AUTO_INCREMENT,\
+BookmarkID int,\
+TagID int,\
+Primary Key (relationshipID),\
+Foreign Key (BookmarkID) references Bookmarks(BookmarkID),\
+Foreign Key (TagID) references Tags(TagID)\
+);\
+\
+Insert into Users (FirstName, LastName, Email, Pass) Values ('Charlie','Winnard','ctwinnard@gmail.com','Pass')\
+\
 }
