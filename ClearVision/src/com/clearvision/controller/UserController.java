@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.clearvision.database.UserDB;
+import com.clearvision.database.UserDaoImpl;
 import com.clearvision.model.User;
+
 
 /**
  * Servlet implementation class AddUserController
  */
 @WebServlet("/AddUserController")
-public class AddUserController extends HttpServlet {
+public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AddUserController() {
+	public UserController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,18 +34,20 @@ public class AddUserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		UserDB userDB = new UserDB();
-		System.out.println("Validate User/ Controller");
-		User user = new User();
-		user.setEmail(request.getParameter("Email"));
-		user.setPass(request.getParameter("Pass"));
-		userDB.validateUserInDatabase(user);
-
-		response.getWriter().append(request.getParameter("Email"));
-		response.getWriter().append(request.getParameter("Pass"));
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+	
+
+//		UserDB userDB = new UserDB();
+//		
+//		User user = new User();
+//		user.setEmail(request.getParameter("Email"));
+//		user.setPass(request.getParameter("Pass"));
+//		userDB.getUserFromDb(user);
+//
+//	}
+//	
+//}
+//}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -52,7 +56,10 @@ public class AddUserController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
-		UserDB userDB = new UserDB();
+		UserDaoImpl userDaoImpl = new UserDaoImpl();
+		
+//		switch (action) {
+//		case "add": {
 
 		System.out.println("Adding User / Controller");
 		// response.getWriter().append(request.getParameter("FirstName"));
@@ -61,7 +68,21 @@ public class AddUserController extends HttpServlet {
 		user.setLastName(request.getParameter("LastName"));
 		user.setEmail(request.getParameter("Email"));
 		user.setPass(request.getParameter("Pass"));
-		userDB.addUserToDatabase(user);
+		userDaoImpl.addUserToDb(user);
+		
+	
+		
+//	}
+//	
+//	
+//	case "delete" + "": {
+//		String email = request.getParameter("Email");
+//		UserDaoImpl.deleteUserFromDb(email);
+//	
+//		break;
+//		
+//
+//	}
 
+}  
 	}
-}

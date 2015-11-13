@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao {
 			userInfo.setLastName(lastName);
 			userInfo.setEmail(email);
 			userInfo.setPass(pass);
-			userInfo.setUserID(userId);
+		
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

@@ -35,7 +35,7 @@ public class UserDB {
 		return rowsChanged;
 	}
 
-	public void validateUserInDatabase(User user) {
+	public boolean validateUserInDatabase(User user) {
     String statementString = "SELECT Email, Pass  FROM user WHERE Email= ? AND password= ?";
     
     try{
@@ -56,7 +56,7 @@ public class UserDB {
 		e.printStackTrace();
 	}
 
-	
+	return 
 }
 	
    
