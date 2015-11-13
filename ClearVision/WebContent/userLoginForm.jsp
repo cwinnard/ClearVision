@@ -95,6 +95,16 @@
   				  	<button type="submit" class="btn btn-default">Submit</button>
 		  		</form>	
 		</div>
+		<div class="col-sm-3">
+			<h1>Add</h1>
+		 		<form role="form" id="addTagForm">
+ 						<div class="form-group">
+   			  			<label for="topic">Tag:</label>
+   			 			<input type="text" class="form-control" id="addTopicForm">
+  						</div>
+  				  	<button type="submit" class="btn btn-default">Submit</button>
+		  		</form>	
+		</div>
 	</div>
 		</div>
 		
