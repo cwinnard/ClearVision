@@ -14,6 +14,7 @@
    		    border-collapse: collapse;
 		}
 </style>
+<link rel="stylesheet" type="text/css" href="Layout.css">
     </head>
  
     <body> 
@@ -21,21 +22,31 @@
             <h3>${requestScope["message"]}</h3>
         </div>
       
-		<table>
-		<tr>
-			<td>User ID</td>
-			<td>Bookmark Name</td>
-			<td>link</td>
-			
-		</tr>
-		<c:forEach var="bookmark" items="${bookmarkList}">
-			<tr>
-				<td>${bookmark.name}</td>
-				<td>${bookmark.url}</td>
-				<td>${bookmark.bookmarkID}</td>
-			</tr>
-		</c:forEach>
-	</table>
+      	<form action = "UpdateTopicAndTagsController" method = "post">
+			<fieldset id = "BookmarkList">
+			<h3>Bookmarks</h3>
+			<c:forEach var="bookmark" items="${bookmarkList}">
+				<input type = "radio" value = "${bookmark.name}" name = "BookmarkName">${bookmark.name} <br>
+			</c:forEach>
+			</fieldset>
+			<fieldset id = "TopicList">
+			<h3>Topics</h3>
+				<input type = "radio" value = "Sports" name = "Topic">Sports <br>
+				<input type = "radio" value = "News" name = "Topic">News <br>
+				<input type = "radio" value = "Finance" name = "Topic">Finance <br>
+				<input type = "radio" value = "Topic4" name = "Topic">Other <br>
+			</fieldset>
+			<fieldset id = "TagList">
+			<h3>Tags</h3>
+				<input type = "checkbox" value = "Tag1" name = "Tag">Football <br>
+				<input type = "checkbox" value = "Tag2" name = "Tag">News <br>
+				<input type = "checkbox" value = "Tag3" name = "Tag">Banking <br>
+				<input type = "checkbox" value = "Tag4" name = "Tag">Other <br>
+			</fieldset>
+			<input type="submit" value = "Save and continue editing">
+			<input type="submit" value = "Save and exit to visualization">
+			</form>
       
     </body>
 </html>
+
