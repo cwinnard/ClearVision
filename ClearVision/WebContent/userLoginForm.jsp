@@ -48,7 +48,7 @@
 		<div class="container">
 			<div class="col-sm-3 col-md-4" style= "margin-top: 50px;">
 				<h1>Log in</h1>
-		 		<form role="form" id="logInForm" action="AddUserController" method="get"> >
+		 		<form role="form" id="logInForm" action="UserController" method="post"> >
   			 		<div class="form-group">
    			  		<label for="email">Email address:</label>
    			  		<input type= "email" class="form-control" id="Email" name = "Email">
@@ -65,7 +65,7 @@
 				</div>
 		<div class="col-sm-8 col-md-5"  style= "margin-top: 50px;">
 			<h1>Create account</h1>
-		  <form role="form" id="createAccountForm" action="AddUserController" method="post">>
+		  <form role="form" id="createAccountForm" action="UserController" method="post">>
 		  <div class="form-group">
    			  <label for="FirstName">First Name:</label>
    			  <input type="text" class="form-control" id="FirstName" name = "FirstName">
@@ -87,7 +87,7 @@
 		  	<div class="row">
 		<div class="col-sm-3">
 			<h1>Add</h1>
-		 		<form role="form" id="addTopicForm">
+		 		<form role="form" id="addTopicForm" action="UserController" method="post">
  						<div class="form-group">
    			  			<label for="topic">Topic:</label>
    			 			<input type="text" class="form-control" id="addTopicForm">
@@ -97,10 +97,20 @@
 		</div>
 		<div class="col-sm-3">
 			<h1>Add</h1>
-		 		<form role="form" id="addTagForm">
+		 		<form role="form" id="addTagForm" action="UserController" method="post">
  						<div class="form-group">
    			  			<label for="topic">Tag:</label>
    			 			<input type="text" class="form-control" id="addTopicForm">
+  						</div>
+  				  	<button type="submit" class="btn btn-default">Submit</button>
+		  		</form>	
+		</div>
+			<div class="col-sm-3">
+			<h1>update</h1>
+		 		<form role="form" id="updateForm" action="UserController" method="post">
+ 						<div class="form-group">
+   			  			<label for="topic">Update:</label>
+   			 			<input type="text" class="form-control" id="updateForm">
   						</div>
   				  	<button type="submit" class="btn btn-default">Submit</button>
 		  		</form>	

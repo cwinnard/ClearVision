@@ -82,39 +82,34 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void updateUserInDb(int userId) {
-		// try{
-		// ConnectToDb connector = new ConnectToDb();
-		// Connection con = connector.connectDb();
-		// statementString = "update User set firstName where userId = ?";
-		// PreparedStatement updateUserFromUserTable =
-		// con.prepareStatement(statementString);
-		// List userInfo = getUserFromDb(userId);
-		// if(firstName !=""){
-		// statementString = "update User set firstName where userId = ?";
-		//
-		// }
-		//
-		// if(lastName !=""){
-		//
-		//
-		// }
-		// if(email !=""){
-		//
-		//
-		// }
-		// if(pass !=""){
-		//
-		//
-		// }
-		//
-		//
-		//
-		// rowsChanged = updateUserFromUserTable.executeUpdate();
-		//
-		// }catch (SQLException e) {
-		// e.printStackTrace();
-		// }
+	public void updateUserInDb(String userData) {
+		try{
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+			statementString = "Update User set = " + userData +"  where where userId = ?";
+			PreparedStatement updateUserInUserTable = con.prepareStatement(statementString);
+			switch (userData) {
+				case "firstName" : {
+					updateUserInUserTable.setString(1, "firstName");
+					break;
+				}
+				case "lastName" : {
+					updateUserInUserTable.setString(1, "lastName");
+					break;
+				}
+				case "email" : {
+					updateUserInUserTable.setString(1, "email");
+					break;
+				}
+				case "pass" : {
+					updateUserInUserTable.setString(1, "pass");
+					break;
+				}
+			}		
+			rowsChanged = updateUserInUserTable.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
