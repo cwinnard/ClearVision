@@ -32,7 +32,7 @@ public class DatabaseJoiner {
 	
 	public int joinUserBookmarkAndTagTables() {
 		String dropTableString = "Drop Table if exists UserBookmarkTag";
-		String statementString = "Create Table UserBookmarkTag select ub.Email, ub.BookmarkName, ub.URL, ub.Topic, t.Tag from BookmarkTag bt inner join UserBookmark ub on bt.BookmarkID = b.BookmarkID inner join Tags t on bt.TagID = t.TagID";
+		String statementString = "Create Table UserBookmarkTag select ub.Email, ub.BookmarkName, ub.URL, ub.Topic, t.Tag from BookmarkTag bt inner join UserBookmark ub on bt.BookmarkID = ub.BookmarkID inner join Tags t on bt.TagID = t.TagID";
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();

@@ -4,25 +4,17 @@ public class Bookmark {
 	public String url;
 	public String name;
 	public String topic;
-	public String addDate;
 	public int bookmarkID;
 	
 	public Bookmark() {}
 	
-	public Bookmark(String url, String name, String addDate, String topic, int bookmarkID) {
+	public Bookmark(String url, String name, String topic, int bookmarkID) {
 		this.url = url;
 		this.name = name;
-		this.addDate = addDate;
 		this.topic = topic;
 		this.bookmarkID = bookmarkID;
 	}
 	
-	public String getAddDate() {
-		return addDate;
-	}
-	public void setAddDate(String addDate) {
-		this.addDate = addDate;
-	}
 	public String getUrl() {
 		return url;
 	}

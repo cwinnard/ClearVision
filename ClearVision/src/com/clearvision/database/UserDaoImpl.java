@@ -54,64 +54,67 @@ public class UserDaoImpl implements UserDao {
 		User userInfo = new User();
 
 		statementString = "SELECT * FROM Users Where email And pass = (?,?)";
-		
+
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
 
 			PreparedStatement getUserFromUserTable = con.prepareStatement(statementString);
 			ResultSet userResults = getUserFromUserTable.executeQuery();
-			
-			int userId = userResults.getInt(1);
-			String firstName = userResults.getString(2);
-			String lastName = userResults.getString(3);
-				   email = userResults.getString(4);
-			String pass = userResults.getString(5);
-			rowsChanged = getUserFromUserTable.executeUpdate();
-			userInfo.setFirstName(firstName);
-			userInfo.setLastName(lastName);
-			userInfo.setEmail(email);
-			userInfo.setPass(pass);
-			userInfo.setUserID(userId);
-			
-		}catch (SQLException e) {
+
+			while (userResults.next()) {
+				int userId = userResults.getInt(1);
+				email = userResults.getString(2);
+				String pass = userResults.getString(3);
+				String firstName = userResults.getString(4);
+				String lastName = userResults.getString(5);
+
+				userInfo.setUserID(userId);
+				userInfo.setEmail(email);
+				userInfo.setPass(pass);
+				userInfo.setFirstName(firstName);
+				userInfo.setLastName(lastName);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
-		} return userInfo;
+		}
+		return userInfo;
 	}
 
 	@Override
 	public void updateUserInDb(int userId) {
-//		try{
-//			ConnectToDb connector = new ConnectToDb();
-//			Connection con = connector.connectDb();
-//			statementString = "update User set firstName where userId = ?";
-//			PreparedStatement updateUserFromUserTable = con.prepareStatement(statementString);
-//			List userInfo = getUserFromDb(userId);
-//			if(firstName !=""){
-//				statementString = "update User set firstName where userId = ?";
-//				
-//				}
-//
-//			 if(lastName !=""){
-//
-//				
-//				}
-//			 if(email !=""){
-//
-//					
-//				}
-//			 if(pass !=""){
-//
-//					
-//				}
-//
-//				
-//			
-//			rowsChanged = updateUserFromUserTable.executeUpdate();
-//
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		// try{
+		// ConnectToDb connector = new ConnectToDb();
+		// Connection con = connector.connectDb();
+		// statementString = "update User set firstName where userId = ?";
+		// PreparedStatement updateUserFromUserTable =
+		// con.prepareStatement(statementString);
+		// List userInfo = getUserFromDb(userId);
+		// if(firstName !=""){
+		// statementString = "update User set firstName where userId = ?";
+		//
+		// }
+		//
+		// if(lastName !=""){
+		//
+		//
+		// }
+		// if(email !=""){
+		//
+		//
+		// }
+		// if(pass !=""){
+		//
+		//
+		// }
+		//
+		//
+		//
+		// rowsChanged = updateUserFromUserTable.executeUpdate();
+		//
+		// }catch (SQLException e) {
+		// e.printStackTrace();
+		// }
 
 	}
 

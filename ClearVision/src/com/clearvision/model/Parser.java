@@ -26,6 +26,7 @@ public class Parser {
 				Bookmark bookmark = new Bookmark();
 				bookmark.setName(linkText);
 				bookmark.setUrl(linkHref);
+				bookmark.setTopic("General");
 				
 				bookmarkList.add(bookmark);
 			}

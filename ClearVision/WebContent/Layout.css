@@ -7,17 +7,17 @@ h3, h5 {
 #BookmarkList {
 	float: left;
 	width: 29%;
-	height: 500px;
+	height: 300px;
 }
 
 #TopicList {
 	float: left;
 	width: 29%;
-	height: 500px;
+	height: 300px;
 }
 
 #TagList {
 	float: left;
 	width: 29%;
-	height: 500px;
+	height: 300px;
 }
