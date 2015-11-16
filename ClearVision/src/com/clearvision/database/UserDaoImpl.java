@@ -53,13 +53,14 @@ public class UserDaoImpl implements UserDao {
 	public User getUserFromDb(String email) {
 		User userInfo = new User();
 
-		statementString = "SELECT * FROM Users Where email And pass = (?,?)";
+		statementString = "SELECT * FROM Users Where email = ?";
 
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
 
 			PreparedStatement getUserFromUserTable = con.prepareStatement(statementString);
+			getUserFromUserTable.setString(1, email);
 			ResultSet userResults = getUserFromUserTable.executeQuery();
 
 			while (userResults.next()) {
