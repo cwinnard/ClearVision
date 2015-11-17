@@ -44,6 +44,9 @@
 		<input type="submit" value="Save and continue editing"> <input
 			type="submit" value="Save and exit to visualization">
 	</form>
+	<form action = "DisplayVisualizationController" method = "post">
+		<input type="submit" value = "Check it out!!" />
+	</form>
 
 </body>
 </html>
