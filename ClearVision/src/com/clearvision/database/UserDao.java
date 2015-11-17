@@ -8,4 +8,5 @@ public interface UserDao {
 	public void updateUserInDb(String userData);
 	public void deleteUserFromDb(String email);
 	public void addUserToDb(User user);
+	public boolean checkIfUserExistsInDb(String email);
 }

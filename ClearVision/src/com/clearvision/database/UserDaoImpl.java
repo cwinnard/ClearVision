@@ -48,6 +48,27 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public boolean checkIfUserExistsInDb(String email) {
+		User userInfo = new User();
+
+		statementString = "SELECT * FROM Users Where email = ?";
+
+		try {
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+
+			PreparedStatement getUserFromUserTable = con.prepareStatement(statementString);
+			getUserFromUserTable.setString(1, email);
+			ResultSet userResults = getUserFromUserTable.executeQuery();
+            return userResults.next();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	@Override
 	public User getUserFromDb(String email) {
