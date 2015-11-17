@@ -27,11 +27,13 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Clear Vision</a>
+				<a class="navbar-brand" href="#">Elicit</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
+				<li><img alt="orange crow logo" src="images/orangeCrow.svg">
+				</li>
 					<li class="active"><a href="null"
 						target="_blank">Home</a></li>
 					<li><a href="null"
@@ -40,11 +42,14 @@
 						target="_blank">Get Started</a></li>
 					<li><a href="null"
 						target="_blank">Contact</a></li>
+					<li><h2 style = "color: white;">A Reference Resource Organization Tool</h2></li>
 				</ul>
 			</div>
 		</div>
+		
 	</nav>
 	<div class="row">
+	
 		<div class="container">
 			<div class="col-sm-3 col-md-4" style= "margin-top: 50px;">
 				<h1>Log in</h1>
