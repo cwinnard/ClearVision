@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Clear Vision</title>
 
-
 <style>
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
@@ -20,15 +20,20 @@ form {
   right: 10px;
   top: 10px;
 }
+
+path {
+  stroke: #fff;
+  fill-rule: evenodd;
+}
+
 </style>
-
 </head>
-
 <body>
-
-
-
-<script src="//d3js.org/d3.v3.min.js"></script>
+<!-- <form>
+  <label><input type="radio" name="mode" value="size"> Size</label>
+  <label><input type="radio" name="mode" value="count" checked> Count</label>
+</form> -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="js/sunburst.js"></script> 
 
 
