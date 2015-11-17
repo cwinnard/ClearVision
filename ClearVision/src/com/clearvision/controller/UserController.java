@@ -32,20 +32,47 @@ public class UserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String action = request.getParameter("action");
+		UserDaoImpl userDaoImpl = new UserDaoImpl();
+		
+		try
+		{	    
+
+		     User user = new User();
+		     user.setEmail(request.getParameter("Email"));
+		     user.setPass(request.getParameter("Pass"));
+
+		     user = UserDAO.login(user);
+			   		    
+		     if (user.isValid())
+		     {
+			        
+		          HttpSession session = request.getSession(true);	    
+		          session.setAttribute("currentSessionUser",user); 
+		          response.sendRedirect("userLogged.jsp"); //logged-in page      		
+		     }
+			        
+		     else 
+		          response.sendRedirect("invalidLogin.jsp"); //error page 
+		} 
+				
+				
+		catch (Throwable theException) 	    
+		{
+		     System.out.println(theException); 
+		}
+		       }
+			}
+	    
+	    
+	    
+	    
+	    
+	    
 	}
 	
 
-//		UserDB userDB = new UserDB();
-//		
-//		User user = new User();
-//		user.setEmail(request.getParameter("Email"));
-//		user.setPass(request.getParameter("Pass"));
-//		userDB.getUserFromDb(user);
-//
-//	}
-//	
-//}
-//}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

@@ -60,7 +60,7 @@ public class User {
 		this.pass = pass;
 	}
 
-	public Boolean getValid() {
+	public Boolean isValid() {
 		return valid;
 	}
 
