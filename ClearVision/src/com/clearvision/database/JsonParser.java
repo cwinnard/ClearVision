@@ -16,6 +16,8 @@ public class JsonParser {
 	public JsonParser() {
 	}
 
+	//Small change, please ignore
+	
 	public void generateJSON(ArrayList<Leaf> leaves) throws JSONException {
 
 		ArrayList<String> topics = new ArrayList<String>();
