@@ -7,11 +7,46 @@ import java.sql.SQLException;
 
 import com.clearvision.model.User;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao{ 
 	public int rowsChanged;
 	private String statementString;
 
 	public UserDaoImpl() {
+	}
+
+	@Override
+	public  User userLogin(User user) {
+		String email = user.getEmail();
+		String pass = user.getPass();
+
+		statementString = "select * from users where Email='" + email + "' AND Pass='" + pass + "'";
+		System.out.println("Your user name is " + email);
+		System.out.println("Your password is " + pass);
+		try {
+			DatabaseConnection connector = new DatabaseConnection();
+			Connection con = connector.connectToDB();
+
+			PreparedStatement userLogin = con.prepareStatement(statementString);
+			ResultSet userResults = userLogin.executeQuery();
+			boolean more = userResults.next();
+			if (!more) {
+				System.out.println("Sorry, you are not a registered user! Please sign up first");
+				user.setValid(false);
+			} else if (more) {
+
+				String Email = userResults.getString("Email");
+				String Pass = userResults.getString("Pass");
+
+				System.out.println("Welcome " + Email);
+				user.setEmail(Email);
+				user.setPass(Pass);
+				user.setValid(true);
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}return user;
 	}
 
 	@Override
@@ -48,6 +83,7 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public boolean checkIfUserExistsInDb(String email) {
 		User userInfo = new User();
@@ -61,9 +97,8 @@ public class UserDaoImpl implements UserDao {
 			PreparedStatement getUserFromUserTable = con.prepareStatement(statementString);
 			getUserFromUserTable.setString(1, email);
 			ResultSet userResults = getUserFromUserTable.executeQuery();
-            return userResults.next();
-			
-			
+			return userResults.next();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -105,31 +140,31 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateUserInDb(String userData) {
-		try{
+		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
-			statementString = "Update User set = " + userData +"  where where userId = ?";
+			statementString = "Update User set = " + userData + "  where where userId = ?";
 			PreparedStatement updateUserInUserTable = con.prepareStatement(statementString);
 			switch (userData) {
-				case "firstName" : {
-					updateUserInUserTable.setString(1, "firstName");
-					break;
-				}
-				case "lastName" : {
-					updateUserInUserTable.setString(1, "lastName");
-					break;
-				}
-				case "email" : {
-					updateUserInUserTable.setString(1, "email");
-					break;
-				}
-				case "pass" : {
-					updateUserInUserTable.setString(1, "pass");
-					break;
-				}
-			}		
+			case "firstName": {
+				updateUserInUserTable.setString(1, "firstName");
+				break;
+			}
+			case "lastName": {
+				updateUserInUserTable.setString(1, "lastName");
+				break;
+			}
+			case "email": {
+				updateUserInUserTable.setString(1, "email");
+				break;
+			}
+			case "pass": {
+				updateUserInUserTable.setString(1, "pass");
+				break;
+			}
+			}
 			rowsChanged = updateUserInUserTable.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 

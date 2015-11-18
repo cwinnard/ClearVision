@@ -41,15 +41,11 @@ public class UserController extends HttpServlet {
 		     User user = new User();
 		     user.setEmail(request.getParameter("Email"));
 		     user.setPass(request.getParameter("Pass"));
-
-		     user = UserDAO.login(user);
-			   		    
 		     if (user.isValid())
+		    
 		     {
 			        
-		          HttpSession session = request.getSession(true);	    
-		          session.setAttribute("currentSessionUser",user); 
-		          response.sendRedirect("userLogged.jsp"); //logged-in page      		
+		          response.sendRedirect("userLoggedIn.jsp"); //logged-in page      		
 		     }
 			        
 		     else 
@@ -62,14 +58,14 @@ public class UserController extends HttpServlet {
 		     System.out.println(theException); 
 		}
 		       }
-			}
+			
 	    
 	    
 	    
 	    
 	    
 	    
-	}
+	
 	
 
 
