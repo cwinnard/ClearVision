@@ -17,7 +17,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 	}
 
 	@Override
-	public void saveBookmarksToDB(List<Bookmark> bookmarks) {
+	public void saveBookmarksToDB(List<Bookmark> bookmarks, int userID) {
 		statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDKey) Values (?,?,?,?)";
 
 		try {
@@ -29,7 +29,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 				addBookmarksToBookmarkTable.setString(1, bookmark.getName());
 				addBookmarksToBookmarkTable.setString(2, bookmark.getUrl());
 				addBookmarksToBookmarkTable.setString(3, "General");
-				addBookmarksToBookmarkTable.setString(4, "1");
+				addBookmarksToBookmarkTable.setLong(4, userID);
 				rowsChanged = addBookmarksToBookmarkTable.executeUpdate();
 			}
 		} catch (SQLException e) {

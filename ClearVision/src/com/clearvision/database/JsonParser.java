@@ -68,7 +68,7 @@ public class JsonParser {
 		}
 
 		JSONObject fullJSON = new JSONObject();
-		fullJSON.put("name", "flare");
+		fullJSON.put("name", "Elicit");
 		fullJSON.put("children", arrayTopics);
 
 		try (FileWriter file = new FileWriter("/Users/CharlieWinnard/Documents/FinalJavaProject/ClearVision/WebContent/dat/flare.json")) {

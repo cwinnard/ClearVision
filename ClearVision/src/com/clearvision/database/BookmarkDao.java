@@ -11,6 +11,6 @@ interface BookmarkDao {
 	public void updateBkMarkInDb(String bookmarkName, String newTopic);
 	public void deleteBkMarkFromDb(Bookmark bookmark);
 	public void addBkMarkToDb(Bookmark bookmark);
-	public void saveBookmarksToDB(List<Bookmark> bookmarks); 
+	public void saveBookmarksToDB(List<Bookmark> bookmarks, int userID); 
 	public int returnBoomarkIDWhenGivenBookmarkName(String bookmarkName);
 }

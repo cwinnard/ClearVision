@@ -9,5 +9,5 @@ public interface UserDao {
 	public void deleteUserFromDb(String email);
 	public void addUserToDb(User user);
 	public boolean checkIfUserExistsInDb(String email);
-	public void userLogin(User user);
+	public User userLogin(String email, String password);
 }

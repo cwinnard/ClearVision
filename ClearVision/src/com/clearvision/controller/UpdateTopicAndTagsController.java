@@ -27,6 +27,7 @@ public class UpdateTopicAndTagsController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String bookmarkToBeUpdated = request.getParameter("BookmarkName");
 		String topicToBeAssigned = request.getParameter("Topic");
 		String[] tagsToBeAssigned = request.getParameterValues("Tag");

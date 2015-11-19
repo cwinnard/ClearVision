@@ -6,15 +6,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.clearvision.database.UserDaoImpl;
 import com.clearvision.model.User;
 
-
 /**
  * Servlet implementation class AddUserController
  */
-@WebServlet("/AddUserController")
+@WebServlet("/UserController")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,43 +32,8 @@ public class UserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
-		UserDaoImpl userDaoImpl = new UserDaoImpl();
-		
-		try
-		{	    
 
-		     User user = new User();
-		     user.setEmail(request.getParameter("Email"));
-		     user.setPass(request.getParameter("Pass"));
-		     if (user.isValid())
-		    
-		     {
-			        
-		          response.sendRedirect("userLoggedIn.jsp"); //logged-in page      		
-		     }
-			        
-		     else 
-		          response.sendRedirect("invalidLogin.jsp"); //error page 
-		} 
-				
-				
-		catch (Throwable theException) 	    
-		{
-		     System.out.println(theException); 
-		}
-		       }
-			
-	    
-	    
-	    
-	    
-	    
-	    
-	
-	
-
-
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -76,34 +41,41 @@ public class UserController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
-		UserDaoImpl userDaoImpl = new UserDaoImpl();
-		
-//		switch (action) {
-//		case "add": {
-
-		System.out.println("Adding User / Controller");
-		// response.getWriter().append(request.getParameter("FirstName"));
+		UserDaoImpl userDB = new UserDaoImpl();
 		User user = new User();
-		user.setFirstName(request.getParameter("FirstName"));
-		user.setLastName(request.getParameter("LastName"));
-		user.setEmail(request.getParameter("Email"));
-		user.setPass(request.getParameter("Pass"));
-		userDaoImpl.addUserToDb(user);
-		
-	
-		
-//	}
-//	
-//	
-//	case "delete" + "": {
-//		String email = request.getParameter("Email");
-//		UserDaoImpl.deleteUserFromDb(email);
-//	
-//		break;
-//		
-//
-//	}
+		HttpSession session = request.getSession();
 
-}  
+		String decision = request.getParameter("decision");
+		String email;
+		String password;
+
+		switch (decision) {
+		case "login":
+			email = request.getParameter("email");
+			password = request.getParameter("password");
+
+			user = userDB.userLogin(email, password);
+
+			session.setAttribute("user", user);
+			request.getRequestDispatcher("/accountPage.jsp").forward(request, response);
+			break;
+		case "register":
+			email = request.getParameter("email");
+			password = request.getParameter("password");
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+
+			user.setEmail(email);
+			user.setPass(password);
+			user.setFirstName(firstName);
+			user.setLastName(lastName);
+
+			userDB.addUserToDb(user);
+
+			session.setAttribute("user", user);
+			request.getRequestDispatcher("/accountPage.jsp").forward(request, response);
+			break;
+		}
+
 	}
+}

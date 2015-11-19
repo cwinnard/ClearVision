@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseJoiner {
 	int rowsChanged;
 
-	DatabaseJoiner() {}
+	public DatabaseJoiner() {}
 
 	public int joinUserAndBookmarkTables(String email) {
 

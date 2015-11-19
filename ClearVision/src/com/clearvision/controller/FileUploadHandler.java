@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.clearvision.database.BkmarkDaoImpl;
 import com.clearvision.model.Bookmark;
 import com.clearvision.model.Parser;
+import com.clearvision.model.User;
 
 /**
  * Servlet to handle File upload request from Client
@@ -31,6 +33,11 @@ public class FileUploadHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		
+		int userID = user.getUserID();
+		
 		BookmarkUploader uploader = new BookmarkUploader();
 		uploader.convertUploadedFileToString(request, response);
 		String fileContents = uploader.getUploadContents();
@@ -39,7 +46,7 @@ public class FileUploadHandler extends HttpServlet {
 		List<Bookmark> bookmarkList = parser.populateBookmarkList(fileContents);
 
 		BkmarkDaoImpl db = new BkmarkDaoImpl();
-		db.saveBookmarksToDB(bookmarkList);
+		db.saveBookmarksToDB(bookmarkList, userID);
 
 		request.setAttribute("bookmarkList", bookmarkList);
 		request.getRequestDispatcher("/assignment.jsp").forward(request, response);

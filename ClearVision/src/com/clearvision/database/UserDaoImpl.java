@@ -15,38 +15,37 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public  User userLogin(User user) {
-		String email = user.getEmail();
-		String pass = user.getPass();
+	public User userLogin(String email, String password) {
+		User userInfo = new User();
 
-		statementString = "select * from users where Email='" + email + "' AND Pass='" + pass + "'";
-		System.out.println("Your user name is " + email);
-		System.out.println("Your password is " + pass);
+		statementString = "SELECT * FROM Users Where email = ? AND pass = ?";
+
 		try {
 			DatabaseConnection connector = new DatabaseConnection();
 			Connection con = connector.connectToDB();
 
 			PreparedStatement userLogin = con.prepareStatement(statementString);
+			userLogin.setString(1, email);
+			userLogin.setString(2, password);
 			ResultSet userResults = userLogin.executeQuery();
-			boolean more = userResults.next();
-			if (!more) {
-				System.out.println("Sorry, you are not a registered user! Please sign up first");
-				user.setValid(false);
-			} else if (more) {
 
-				String Email = userResults.getString("Email");
-				String Pass = userResults.getString("Pass");
+			while (userResults.next()) {
+				int userId = userResults.getInt(1);
+				email = userResults.getString(2);
+				String pass = userResults.getString(3);
+				String firstName = userResults.getString(4);
+				String lastName = userResults.getString(5);
 
-				System.out.println("Welcome " + Email);
-				user.setEmail(Email);
-				user.setPass(Pass);
-				user.setValid(true);
+				userInfo.setUserID(userId);
+				userInfo.setEmail(email);
+				userInfo.setPass(pass);
+				userInfo.setFirstName(firstName);
+				userInfo.setLastName(lastName);
 			}
-			
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}return user;
+		}
+		return userInfo;
 	}
 
 	@Override
@@ -86,7 +85,6 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public boolean checkIfUserExistsInDb(String email) {
-		User userInfo = new User();
 
 		statementString = "SELECT * FROM Users Where email = ?";
 
