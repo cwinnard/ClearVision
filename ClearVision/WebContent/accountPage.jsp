@@ -3,16 +3,37 @@
 	
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
 <meta charset="utf-8">
-<title>Clear Vision Sample</title>
+<title>Elicit Reference Resource Organization Tool</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" type = "text/css" href="css/clearVisionCSS.css">
+<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
 <style>
+
+body {
+font-family: Arial Black,Arial Bold,Gadget,sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 700;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
 path {
   stroke: #fff;
@@ -20,72 +41,57 @@ path {
 }
 
 </style>
+
 </head>
 
 <body>
 	<nav id="myNavbar"
 		class="navbar navbar-default navbar-inverse navbar-fixed-top"
 		role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#navbarCollapse">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+						class="icon-bar"></span>	
 				</button>
+				<a class="navbar-brand" href="index.html"><span id ="elicit">Elicit</span></a>
+				<img alt="orange crow logo" src="images/orangeCrow.svg" id="menuCrow">
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="nav navbar-nav">
-				<li><img alt="orange crow logo" src="images/orangeCrow.svg">
-				</li>
-					<li class="active"><a href="http://localhost:8080/ClearVision/homepage.jsp"
-						target="Homepage">Home</a></li>
-					<li><a href="http://localhost:8080/ClearVision/bookmarkUpload.jsp"
-						target="Get Started">Get Started</a></li>
-					<li><a href="http://localhost:8080/ClearVision/userLoginForm.jsp"
-						target="Login">Login</a></li>
-					<li><a href="http://localhost:8080/ClearVision/about.jsp"
-						target="About Us Page">About Us</a></li>
-				</ul>
+				 <ul class="nav navbar-nav navbar-right">	
+					<li><a href="index.html" target="_self">Home</a></li>
+					<li><a href="getStarted.html" target="_self">Get Started</a></li>
+					<li><a href="login.jsp" target="_self">Login</a></li>
+					<li><a href="contactUs.jsp" target="_self">Contact Us</a></li>
+				  </ul>
 			</div>
 		</div>
 	</nav>
 	
-	<div class="row">
-		<div class="container">
-			<div class="col-sm-12 col-md-12" style= "margin-top: 80px; text-align: left">
-					<h2>Hello, ${user.firstName}</h2>
-			</div>
-		</div>
-	</div>
 	
-	<div class="row">
-		<div class="container">
-			<div class="col-sm-3" style= "margin-top: 20px; text-align: center">
-				<h4>Account Info</h4>
-			</div>
-			<div class="col-sm-3" style= "margin-top: 20px; text-align: center">
-				<h4><a href = "http://localhost:8080/ClearVision/bookmarkUpload.jsp">Upload New Bookmarks</a></h4>
-			</div>
-			<div class="col-sm-3" style= "margin-top: 20px; text-align: center">
-				<h4>Update Existing Bookmarks</h4>	
-			</div>
-			<div class="col-sm-3" style= "margin-top: 20px; text-align: center">
-				<h4><a href = "http://localhost:8080/ClearVision/sunBurst.jsp">Enlarge Visualization</a></h4>	
-			</div>
-		</div>
+		
+				<div class="col-sm-9 col-md-9" style="margin: 0em 0em 0em 0em">
+					<script src="js/sunburst.js"></script> 	
+				</div>
+			
+			  <div class="col-sm-3 col-md-3" style= "margin-top: 5em;">
+				  <div class = "well" style="margin-top: 0em .5em 0em 1em">
+				 	 <h2>Hello</h2><h4>${user.firstName}</h4>
+				 	 <h4 style="margin: .25em 1em .25em 0em">Account Info</h4>
+				 	 <p>${user.firstName}</p>
+				 	  <p>${user.lastName}</p>
+				 	   <p>${user.email}</p>
+			 		<a href="bookmarkUpload.jsp" class="btn btn-warning" role="button" style="margin: .5em 0em 1em 0em">Upload Bookmarks</a>
+             	  </div>
+			 </div>
+		
+	  		<div class="push"></div>
+	<div class="footer">
+    <p><span id = "elicitFooter">Elicit</span> &copy; Copyright 2015 All Rights Reserved </p>
 	</div>
-	
-	<div class = "row" style= "margin: 0px 0px 0px 0px;">
-		<div class="container">
-			<div class="col-sm-12">
-				<jsp:include page = "sunBurst.html"/>
-			</div>
-		</div>
-	</div>
+
 </body>
 </html>
 
