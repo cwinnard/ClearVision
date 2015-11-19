@@ -36,8 +36,6 @@ public class FileUploadHandler extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
-		int userID = user.getUserID();
-		
 		BookmarkUploader uploader = new BookmarkUploader();
 		uploader.convertUploadedFileToString(request, response);
 		String fileContents = uploader.getUploadContents();
@@ -46,7 +44,7 @@ public class FileUploadHandler extends HttpServlet {
 		List<Bookmark> bookmarkList = parser.populateBookmarkList(fileContents);
 
 		BkmarkDaoImpl db = new BkmarkDaoImpl();
-		db.saveBookmarksToDB(bookmarkList, userID);
+		db.saveBookmarksToDB(bookmarkList, user);
 
 		request.setAttribute("bookmarkList", bookmarkList);
 		request.getRequestDispatcher("/assignment.jsp").forward(request, response);

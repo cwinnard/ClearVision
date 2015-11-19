@@ -49,15 +49,16 @@
 	<div class="wrapper">
 		<div class="row">
 			<div class="container">
-				<div class="col-sm-3 col-md-4" style= "margin-top: 6em;">
-			 	  <form role="form">
+				<div class="col-sm-3 col-md-4" style= "margin-top: 8em;">
+			 	  <form role="form" action = "UserController" method = "post">
+			 	  	<input type = "hidden" value = "login" name = "decision" />
  				    <div class="form-group">
     				  <label for="email">Email address:</label>
-    				  <input type="email" class="form-control" id="email">
+    				  <input type="email" class="form-control" id="email" name = "email">
  					</div>
  				    <div class="form-group">
     				  <label for="pwd">Password:</label>
-    				  <input type="password" class="form-control" id="pwd">
+    				  <input type="password" class="form-control" id="pwd" name = "password">
   					</div>
   					<button type="submit" class="btn btn-default">Submit</button>
 				  </form>
@@ -65,23 +66,24 @@
 			  <div class="col-sm-1 col-md-3" style= "margin-top: 4em; text-align: center;">
 			    <h1 style="margin: 2em 0em 0em 0em">Or</h1>
 			  </div>
-			    <div class="col-sm-8 col-md-5"  style= "margin-top: 6em;">
-				  <form role="form">
+			    <div class="col-sm-8 col-md-5"  style= "margin-top: 8em;">
+				  <form role="form" action = "UserController" method = "post">
+				  <input type = "hidden" value = "register" name = "decision" />
 				  <div class="form-group">
     				  <label for="firstName">First Name:</label>
-    				  <input type="text" class="form-control" id="firstName">
+    				  <input type="text" class="form-control" id="firstName" name = "firstName">
  					</div>
  					<div class="form-group">
     				  <label for="email">Last Name:</label>
-    				  <input type="text" class="form-control" id="lastName">
+    				  <input type="text" class="form-control" id="lastName" name = "lastName">
  					</div>
  				    <div class="form-group">
     				  <label for="email">Email address:</label>
-    				  <input type="email" class="form-control" id="email">
+    				  <input type="email" class="form-control" id="email" name = "email">
  					</div>
  				    <div class="form-group">
     				  <label for="pwd">Password:</label>
-    				  <input type="password" class="form-control" id="pwd">
+    				  <input type="password" class="form-control" id="pwd" name = "password">
   					</div>
   					<button type="submit" class="btn btn-default">Submit</button>
 				  </form>

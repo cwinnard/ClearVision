@@ -16,8 +16,6 @@ public class JsonParser {
 	public JsonParser() {
 	}
 
-	//Small change, please ignore
-	
 	public void generateJSON(ArrayList<Leaf> leaves) throws JSONException {
 
 		ArrayList<String> topics = new ArrayList<String>();
@@ -45,6 +43,7 @@ public class JsonParser {
 					JSONObject leafJSON = new JSONObject();
 					leafJSON.put("name", leaf.getBookmarkName());
 					leafJSON.put("url", leaf.getBookmarkURL());
+					leafJSON.put("size", 1);
 					arrayLeaves.put(leafJSON);
 				}
 			}
@@ -60,6 +59,7 @@ public class JsonParser {
 				for (Leaf leaf : leaves) {
 					if (leaf.getBookmarkTopic().equals(topic) && leaf.getTag().equals(tagJSON.get("name"))) {
 						arrayTags.put(tagJSON);
+						break;
 					}
 				}
 			}
@@ -73,7 +73,6 @@ public class JsonParser {
 
 		try (FileWriter file = new FileWriter("/Users/CharlieWinnard/Documents/FinalJavaProject/ClearVision/WebContent/dat/flare.json")) {
 			file.write(fullJSON.toString());
-			System.out.println("Successfully Copied JSON Object to File...");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 
@@ -16,7 +15,6 @@ import com.clearvision.database.DatabaseJoiner;
 import com.clearvision.database.JsonParser;
 import com.clearvision.database.LeafDB;
 import com.clearvision.model.Leaf;
-import com.clearvision.model.User;
 
 /**
  * Servlet implementation class DisplayVisualizationController
@@ -49,11 +47,9 @@ public class DisplayVisualizationController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
 		
 		DatabaseJoiner joiner = new DatabaseJoiner();
-		joiner.joinUserAndBookmarkTables(user.getEmail());
+		joiner.joinUserAndBookmarkTables("presentation@test.com");
 		joiner.joinUserBookmarkAndTagTables();
 
 		LeafDB leafDB = new LeafDB();
