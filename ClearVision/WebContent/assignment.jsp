@@ -34,20 +34,18 @@
 					data-target="#navbarCollapse">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+						class="icon-bar"></span>	
 				</button>
-				<a class="navbar-brand" href="index.html"><span id="elicit">Elicit</span></a>
-				<img alt="orange crow logo" src="images/orangeCrow.svg"
-					id="menuCrow">
+				<a class="navbar-brand" href="index.html"><span id ="elicit">Elicit</span></a>
+				<img alt="orange crow logo" src="images/orangeCrow.svg" id="menuCrow">
 			</div>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="index.html" target="_self">Home</a></li>
+				 <ul class="nav navbar-nav navbar-right">	
+					<li class="active"><a href="index.html" target="_self">Home</a></li>
 					<li><a href="getStarted.html" target="_self">Get Started</a></li>
 					<li><a href="login.jsp" target="_self">Login</a></li>
-					<li class="active"><a href="contactUs.jsp" target="_self">Contact
-							Us</a></li>
-				</ul>
+					<li><a href="contactUs.jsp" target="_self">Contact Us</a></li>
+				  </ul>
 			</div>
 		</div>
 	</nav>
@@ -72,18 +70,18 @@
 				<input type="radio" value="Sports" name="Topic">Sports <br>
 				<input type="radio" value="News" name="Topic">News <br>
 				<input type="radio" value="Finance" name="Topic">Finance <br>
-				<input type="radio" value="Social Media" name="Topic">Social Media<br> 
-				<input type="radio" value="Coding Resources" name="Topic">Coding Resources<br>
+				<input type="radio" value="Social" name="Topic">Social<br> 
+				<input type="radio" value="Coding" name="Topic">Coding<br>
 			</div>
 		</div>
 		<div class="col-sm-3" style="margin-top: 6em;">
 			<div class="form-group">
 				<h3 style = "text-align: center">Tags</h3>
 				<input type="checkbox" value="General" name="Tag">General
-				<br> <input type="checkbox" value="International" name="Tag">International
+				<br> <input type="checkbox" value="World" name="Tag">World
 				<br> <input type="checkbox" value="Local" name="Tag">Local
 				<br> <input type="checkbox" value="Java" name="Tag">Java
-				<br> <input type="checkbox" value="JavaScript" name="Tag">JavaScript
+				<br> <input type="checkbox" value="JS" name="Tag">JS
 				<br> <input type="checkbox" value="Help" name="Tag">Help
 				<br>
 			</div>

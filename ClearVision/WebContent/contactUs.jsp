@@ -56,31 +56,30 @@
 	<div class = "row">
 		<div class = "container">
 			<div class = "col-sm-4" style="text-align:center">
-				<h4>Jeremy Summerlin (clone 1)</h4>
+				<h4>Jeremy Summerlin</h4>
 				<img alt="jeremy summerlin photo" src="images/jeremy.jpg">
 				<ul style="margin-top: .5em; list-style-type:none">
-				<li><b>Phone :</b> (313)399-6000</li>
+				<li><b>Phone :</b> (313) 399-6000</li>
 				<li><b>email :</b> jts@loopctrl.com</li>
 				<li>www.linkedin.com/in/jtsjeremy</li>
 				</ul>
 			
 			</div>		
 			<div class = "col-sm-4" style="text-align:center">
-				<h4>Nate Britt (clone 2)</h4>
-				<img alt="jeremy summerlin photo" src="images/jeremy.jpg">
+				<h4>Nate Britt</h4>
+				<img alt="nate britt photo" src="images/nateB.jpg" height = "166px" width = "260px">
 				<ul style="margin-top: .5em; list-style-type:none">
-				<li><b>Phone :</b>   (313)989-8295</li>
-				<li><b>email :</b> xmrbritt@gmail.com</li>
-				<li>www.linkedin.com/</li>
+				<li><b>Phone :</b>   (313) 989-8295</li>
+				<li><b>email :</b> NathanielBritt3rd@gmail.com</li>
+				<li>www.linkedin.com/in/NathanielBritt3rd</li>
 				</ul>
 			</div>	
 			<div class = "col-sm-4" style="text-align:center">
-				<h4>Charlie Winnard (clone 3)</h4>
-				<img alt="jeremy summerlin photo" src="images/jeremy.jpg">
+				<h4>Charlie Winnard</h4>
+				<img alt="charlie winnard photo" src="images/CharliePic.jpg" height = "166px" width = "260px">
 				<ul style="margin-top: .5em; list-style-type:none">
-				<li><b>Phone :</b> (269)350-6310</li>
+				<li><b>Phone :</b> (269) 350-6310</li>
 				<li><b>email :</b> ctwinnard@gmail.com</li>
-				<li>www.linkedin.com/in/</li>
 				</ul>
 			</div>	
 		</div>

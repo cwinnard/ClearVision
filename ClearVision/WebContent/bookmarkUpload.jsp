@@ -18,30 +18,24 @@
 	<nav id="myNavbar"
 		class="navbar navbar-default navbar-inverse navbar-fixed-top"
 		role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#navbarCollapse">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+						class="icon-bar"></span>	
 				</button>
+				<a class="navbar-brand" href="index.html"><span id ="elicit">Elicit</span></a>
+				<img alt="orange crow logo" src="images/orangeCrow.svg" id="menuCrow">
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="nav navbar-nav">
-				<li><img alt="orange crow logo" src="images/orangeCrow.svg">
-				</li>
-					<li class="active"><a href="http://localhost:8080/ClearVision/homepage.jsp"
-						target="Homepage">Home</a></li>
-					<li><a href="http://localhost:8080/ClearVision/bookmarkUpload.jsp"
-						target="Get Started">Get Started</a></li>
-					<li><a href="http://localhost:8080/ClearVision/userLoginForm.jsp"
-						target="Login">Login</a></li>
-					<li><a href="http://localhost:8080/ClearVision/about.jsp"
-						target="About Us Page">About Us</a></li>
-				</ul>
+				 <ul class="nav navbar-nav navbar-right">	
+					<li><a href="index.html" target="_self">Home</a></li>
+					<li><a href="getStarted.html" target="_self">Get Started</a></li>
+					<li><a href="login.jsp" target="_self">Login</a></li>
+					<li class="active"><a href="contactUs.jsp" target="_self">Contact Us</a></li>
+				  </ul>
 			</div>
 		</div>
 	</nav>

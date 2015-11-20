@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.clearvision.model.Bookmark;
+import com.clearvision.model.User;
 
 public class BkmarkDaoImpl implements BookmarkDao {
 	int rowsChanged;
@@ -17,7 +18,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 	}
 
 	@Override
-	public void saveBookmarksToDB(List<Bookmark> bookmarks, int userID) {
+	public void saveBookmarksToDB(List<Bookmark> bookmarks, User user) {
 		statementString = "Insert into Bookmarks (BookmarkName, URL, Topic, UserIDKey) Values (?,?,?,?)";
 
 		try {
@@ -29,7 +30,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 				addBookmarksToBookmarkTable.setString(1, bookmark.getName());
 				addBookmarksToBookmarkTable.setString(2, bookmark.getUrl());
 				addBookmarksToBookmarkTable.setString(3, "General");
-				addBookmarksToBookmarkTable.setLong(4, userID);
+				addBookmarksToBookmarkTable.setLong(4, 2);
 				rowsChanged = addBookmarksToBookmarkTable.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -147,7 +148,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 	}
 
 	@Override
-	public ArrayList<Bookmark> getBkMarkListFromDB() {
+	public ArrayList<Bookmark> getBkMarkListFromDB(User user) {
 		ArrayList<Bookmark> bookmarkList = new ArrayList<Bookmark>();
 
 		statementString = "SELECT * FROM Bookmarks Where UserIDKey = ?";
@@ -157,7 +158,7 @@ public class BkmarkDaoImpl implements BookmarkDao {
 			Connection con = connector.connectToDB();
 
 			PreparedStatement getBkmkListFromBkmkTable = con.prepareStatement(statementString);
-			getBkmkListFromBkmkTable.setString(1, "1");
+			getBkmkListFromBkmkTable.setLong(1, 2);
 			ResultSet bkmResults = getBkmkListFromBkmkTable.executeQuery();
 
 			while (bkmResults.next()) {

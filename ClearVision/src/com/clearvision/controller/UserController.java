@@ -41,6 +41,7 @@ public class UserController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		UserDaoImpl userDB = new UserDaoImpl();
 		User user = new User();
 		HttpSession session = request.getSession();

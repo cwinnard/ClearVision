@@ -49,8 +49,9 @@
 	<div class="wrapper">
 		<div class="row">
 			<div class="container">
-				<div class="col-sm-3 col-md-4" style= "margin-top: 8em;">
+				<div class="col-sm-3 col-md-4" style= "margin-top: 6em;">
 			 	  <form role="form" action = "UserController" method = "post">
+			 	  	<h1 style = "text-align: center">Login</h1>
 			 	  	<input type = "hidden" value = "login" name = "decision" />
  				    <div class="form-group">
     				  <label for="email">Email address:</label>
@@ -66,7 +67,8 @@
 			  <div class="col-sm-1 col-md-3" style= "margin-top: 4em; text-align: center;">
 			    <h1 style="margin: 2em 0em 0em 0em">Or</h1>
 			  </div>
-			    <div class="col-sm-8 col-md-5"  style= "margin-top: 8em;">
+			    <div class="col-sm-8 col-md-5"  style= "margin-top: 6em;">
+			    <h1 style = "text-align: center">Create An Account</h1>
 				  <form role="form" action = "UserController" method = "post">
 				  <input type = "hidden" value = "register" name = "decision" />
 				  <div class="form-group">

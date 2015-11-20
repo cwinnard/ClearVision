@@ -8,7 +8,7 @@ public class DatabaseConnection {
 	String driver = "com.mysql.jdbc.Driver";
 	String connection = "jdbc:mysql://localhost:3306/BookmarkManager";
 	String dbUser = "root";
-	String password = "cresant1";
+	String password = "sesame";
 	
 	public DatabaseConnection () {}
 

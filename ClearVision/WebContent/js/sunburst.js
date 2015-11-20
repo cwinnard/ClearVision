@@ -8,12 +8,9 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([0, radius]);
 
-var color = d3.scale.category20c();
-
-
+var color = d3.scale.category20();
 
 var svg = d3.select("body").append("svg")
-	
     .attr("width", width)
     .attr("height", height)
   .append("g")
@@ -32,10 +29,9 @@ d3.json("dat/flare.json", function(error, root) {
   var g = svg.selectAll("g")
       .data(partition.nodes(root))
     .enter().append("g:a")
-  .attr("xlink:href", function(d){return d.url});
+    .attr("xlink:href", function(d){return d.url})
+  	.attr("target","_blank");
 
-  
-  
   var path = g.append("path")
     .attr("d", arc)
     .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
@@ -48,9 +44,6 @@ d3.json("dat/flare.json", function(error, root) {
     .attr("dy", ".35em") // vertical-align
     .text(function(d) { return d.name; });
 
-  
-  
-  
   function click(d) {
     // fade out all text elements
     text.transition().attr("opacity", 0);
@@ -65,8 +58,8 @@ d3.json("dat/flare.json", function(error, root) {
             var arcText = d3.select(this.parentNode).select("text");
             // fade in the text element and recalculate positions
             arcText.transition().duration(750)
-              .attr("opacity", 1)    
-              .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")rotate(" + computeTextRotation(d) + ")"; })
+              .attr("opacity", 1)
+              .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
               .attr("x", function(d) { return y(d.y); });
           }
       });
@@ -88,8 +81,7 @@ function arcTween(d) {
 }
 
 function computeTextRotation(d) {
-    var ang = (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
-    return (ang > 90) ? 180 + ang : ang;
+  return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
 }
 
 

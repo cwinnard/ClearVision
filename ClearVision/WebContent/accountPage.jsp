@@ -19,11 +19,6 @@
 <style>
 
 body {
-font-family: Arial Black,Arial Bold,Gadget,sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: small-caps;
-	font-weight: 700;
   margin: auto;
   position: relative;
   width: 960px;
@@ -72,13 +67,14 @@ path {
 	
 	
 		
-				<div class="col-sm-9 col-md-9" style="margin: 0em 0em 0em 0em">
+				<div class="col-sm-9 col-md-9" style="margin: 2em 0em 0em 0em">
 					<script src="js/sunburst.js"></script> 	
 				</div>
 			
 			  <div class="col-sm-3 col-md-3" style= "margin-top: 5em;">
 				  <div class = "well" style="margin-top: 0em .5em 0em 1em">
 				 	 <h2>Hello</h2><h4>${user.firstName}</h4>
+				 	 <br><br>
 				 	 <h4 style="margin: .25em 1em .25em 0em">Account Info</h4>
 				 	 <p>${user.firstName}</p>
 				 	  <p>${user.lastName}</p>

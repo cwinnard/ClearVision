@@ -8,11 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.clearvision.database.BkmarkDaoImpl;
 import com.clearvision.database.BookmarkTagDB;
 import com.clearvision.database.TagDB;
 import com.clearvision.model.Bookmark;
+import com.clearvision.model.User;
 
 @WebServlet("/UpdateTopicAndTagsController")
 public class UpdateTopicAndTagsController extends HttpServlet {
@@ -27,6 +29,8 @@ public class UpdateTopicAndTagsController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		
 		String bookmarkToBeUpdated = request.getParameter("BookmarkName");
 		String topicToBeAssigned = request.getParameter("Topic");
@@ -46,7 +50,7 @@ public class UpdateTopicAndTagsController extends HttpServlet {
 			btDB.linkBookmarkAndTag(bookmarkID, tagID);
 		}
 		
-		List<Bookmark> bookmarkList = bookmarkDB.getBkMarkListFromDB();
+		List<Bookmark> bookmarkList = bookmarkDB.getBkMarkListFromDB(user);
 		
 		request.setAttribute("bookmarkList", bookmarkList);
 		request.getRequestDispatcher("/assignment.jsp").forward(request, response);
